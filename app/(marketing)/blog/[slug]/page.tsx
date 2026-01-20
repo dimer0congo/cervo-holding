@@ -2,7 +2,6 @@ import { prisma } from "@/lib/prisma"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react"
-import { motion } from "framer-motion"
 import { Inter } from "next/font/google"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -48,10 +47,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100/50 via-white to-white dark:from-slate-900/20 dark:to-zinc-950 pointer-events-none" />
 
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                    <div
                         className="mb-8"
                     >
                         <Link
@@ -61,43 +57,32 @@ export default async function ArticlePage({ params }: PageProps) {
                             <ArrowLeft className="w-3 h-3" />
                             Back to Journal
                         </Link>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
+                    <div
                         className="mb-6 flex justify-center"
                     >
                         <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700">
                             {article.category.name}
                         </span>
-                    </motion.div>
+                    </div>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                    <h1
                         className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#0B2C4D] dark:text-white leading-[1.1] font-serif mb-8 tracking-tight"
                     >
                         {article.title}
-                    </motion.h1>
+                    </h1>
 
                     {article.excerpt && (
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
+                        <p
+
                             className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto font-light"
                         >
                             {article.excerpt}
-                        </motion.p>
+                        </p>
                     )}
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                    <div
                         className="mt-12 flex items-center justify-center gap-6 text-sm text-slate-500 divide-x divide-slate-200"
                     >
                         <div className="flex items-center gap-3">
@@ -121,16 +106,13 @@ export default async function ArticlePage({ params }: PageProps) {
                             <Clock className="w-3 h-3" />
                             {Math.ceil(article.content.length / 1000)} min read
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
             {/* Featured Image - Wide & Cinematic */}
             {article.featuredImage && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
+                <div
                     className="max-w-[1400px] mx-auto px-4 md:px-8 mb-20"
                 >
                     <div className="relative aspect-[21/9] md:aspect-[2/1] w-full overflow-hidden rounded-2xl shadow-2xl">
@@ -143,7 +125,7 @@ export default async function ArticlePage({ params }: PageProps) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                     </div>
-                </motion.div>
+                </div>
             )}
 
             {/* Content Layout */}
